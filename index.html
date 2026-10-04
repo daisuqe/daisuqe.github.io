@@ -239,9 +239,11 @@
   <div class="grid" id="grid"></div>
   <p class="empty" id="empty" hidden>見つかりませんでした</p>
 
-  <hr class="sep">
-  <h2 class="section-title">nodegram Apps</h2>
-  <div class="grid" id="ngrid"></div>
+  <section id="nsection">
+    <hr class="sep">
+    <h2 class="section-title">nodegram Apps</h2>
+    <div class="grid" id="ngrid"></div>
+  </section>
 </main>
 
 <footer>
@@ -311,18 +313,22 @@
         </a>`;
     }).join("");
 
-    empty.hidden = list.length > 0;
+    // nodegram apps (並び替えの対象外、検索は名前と説明)
+    const nlist = (window.NODEGRAM_APPS || []).filter(a =>
+      !term || [a.name, a.desc].join(" ").toLowerCase().includes(term));
+    document.getElementById("ngrid").innerHTML = nlist.map(a => `
+      <a class="card" href="${esc(a.url)}" target="_blank" rel="noopener">
+        <div class="thumb has-img" style="background:#111">
+          <img src="${esc(a.thumb)}" alt="" loading="lazy">
+        </div>
+        <div class="meta"><p class="name">${esc(a.name)}</p><p class="desc">${esc(a.desc)}</p></div>
+      </a>`).join("");
+    document.getElementById("nsection").hidden = nlist.length === 0;
+
+    grid.hidden = list.length === 0;
+    empty.hidden = list.length + nlist.length > 0;
     document.getElementById("count").textContent = `${APPS.length} + ${(window.NODEGRAM_APPS || []).length} apps`;
   }
-
-  // nodegram apps (検索・並び替えの対象外、説明・日付なし)
-  document.getElementById("ngrid").innerHTML = (window.NODEGRAM_APPS || []).map(a => `
-    <a class="card" href="${esc(a.url)}" target="_blank" rel="noopener">
-      <div class="thumb has-img" style="background:#111">
-        <img src="${esc(a.thumb)}" alt="" loading="lazy">
-      </div>
-      <div class="meta"><p class="name">${esc(a.name)}</p><p class="desc">${esc(a.desc)}</p></div>
-    </a>`).join("");
 
   q.addEventListener("input", render);
   sortButtons.forEach(btn => btn.addEventListener("click", () => {
