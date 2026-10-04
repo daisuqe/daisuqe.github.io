@@ -62,7 +62,51 @@
     line-height: 0.9;
     margin: 0;
   }
-  .logo span { color: var(--accent); }
+  .saku {
+    position: absolute;
+    top: 16px; right: 16px;
+    padding: 0; border: 0; background: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .saku img { display: block; width: 32px; height: 32px; image-rendering: pixelated; }
+  .saku:active img { transform: translateY(1px); }
+  .bubble {
+    position: absolute;
+    top: 50%; right: calc(100% + 20px);
+    transform: translateY(calc(-50% + 5px));
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+  }
+  /* 右向きの鋭いしっぽ (外側=線の色、内側=背景色) */
+  .bubble::before, .bubble::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-style: solid;
+  }
+  .bubble::before {
+    right: -13px;
+    border-width: 5px 0 5px 13px;
+    border-color: transparent transparent transparent var(--line);
+  }
+  .bubble::after {
+    right: -11px;
+    border-width: 4px 0 4px 11px;
+    border-color: transparent transparent transparent var(--card);
+  }
+  .bubble.show { opacity: 1; }
   .count { color: var(--sub); font-size: 14px; margin: 0 0 4px; }
 
   .toolbar {
@@ -221,6 +265,11 @@
 </head>
 <body>
 
+<button class="saku" id="saku" type="button" aria-label="saku">
+  <img src="saku.png" alt="">
+  <span class="bubble" id="bubble" aria-live="polite"></span>
+</button>
+
 <header>
   <h1 class="logo">daisuqe Apps</h1>
   <p class="count" id="count"></p>
@@ -329,6 +378,24 @@
     empty.hidden = list.length + nlist.length > 0;
     document.getElementById("count").textContent = `${APPS.length} + ${(window.NODEGRAM_APPS || []).length} apps`;
   }
+
+  // saku をクリックするとランダムな言語で挨拶
+  const HELLOS = [
+    ["こんにちは", "日本語"], ["Hello", "English"], ["你好", "简体中文"],
+    ["안녕하세요", "한국어"], ["Bonjour", "Français"], ["Hallo", "Deutsch"],
+    ["Hola", "Español"], ["Olá", "Português"], ["Ciao", "Italiano"],
+    ["Привет", "Русский"], ["Merhaba", "Türkçe"], ["Halo", "Bahasa Indonesia"],
+    ["Xin chào", "Tiếng Việt"], ["สวัสดี", "ไทย"], ["नमस्ते", "हिन्दी"],
+  ];
+  const bubble = document.getElementById("bubble");
+  let lastHello = -1;
+  document.getElementById("saku").addEventListener("click", () => {
+    let i;
+    do { i = Math.floor(Math.random() * HELLOS.length); } while (i === lastHello);
+    lastHello = i;
+    bubble.textContent = HELLOS[i][0];
+    bubble.classList.add("show");
+  });
 
   q.addEventListener("input", render);
   sortButtons.forEach(btn => btn.addEventListener("click", () => {
