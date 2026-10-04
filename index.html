@@ -312,7 +312,7 @@
     }).join("");
 
     empty.hidden = list.length > 0;
-    document.getElementById("count").textContent = `${APPS.length} apps`;
+    document.getElementById("count").textContent = `${APPS.length} + ${(window.NODEGRAM_APPS || []).length} apps`;
   }
 
   // nodegram apps (検索・並び替えの対象外、説明・日付なし)
