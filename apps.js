@@ -10,8 +10,8 @@
 //   label : サムネイル左上のラベル (任意。例 "Special" "Topic")
 window.APPS = [
   { slug: "GRAVITYFOUR",   name: "GRAVITY FOUR",  date: "2026-09-23", desc: "四目並べトーナメント", color: "#1f7a4d" },
-  { slug: "gyakuzan",      name: "gyakuzan",      date: "2026-07-10", desc: "電卓で逆算するパズル",       color: "#3b6fd8" },
-  { slug: "MKYBD",         name: "MKYBD",         date: "2026-06-13", desc: "メモ用キーボード",           color: "#e0663a" },
+  { slug: "gyakuzan",      name: "gyakuzan",      date: "2026-07-10", desc: "逆算",       color: "#3b6fd8" },
+  { slug: "MKYBD",         name: "MKYBD",         date: "2026-06-13", desc: "スマホ用キーボード",           color: "#e0663a" },
   { slug: "nodegram",      name: "nodegram",      date: "2026-08-02", desc: "node プログラミング",       color: "#8a4fd8", pin: true, label: "Special" },
   { slug: "okudesu",       name: "okudesu",       date: "2026-05-31", desc: "3Dブロック並べ",                           color: "#d84f7a" },
   { slug: "xwordx",        name: "xwordx",        date: "2026-09-29", desc: "対戦型クロスワード",                           color: "#222222" },
