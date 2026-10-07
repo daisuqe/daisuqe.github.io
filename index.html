@@ -287,7 +287,20 @@
   © daisuqe · <a href="https://x.com/daiii">X</a> · <a href="https://d00harada.blogspot.com/">Blog</a> · <a href="https://www.youtube.com/@daisuqee">YouTube</a>
 </footer>
 
-<script src="apps.js?v=20261004c"></script>
+<script src="apps.js?v=20261007"></script>
+<script>
+  // ブラウザの言語が日本語以外なら英語表示に切り替える
+  // ?lang=en / ?lang=ja で強制切り替えもできる
+  const LANG = new URLSearchParams(location.search).get("lang") || navigator.language || "";
+  const IS_JA = LANG.toLowerCase().startsWith("ja");
+  if (!IS_JA) {
+    document.documentElement.lang = "en";
+    const toEn = a => Object.assign(a, { name: a.name_en || a.name, desc: a.desc_en ?? a.desc });
+    APPS.forEach(toEn);
+    (window.NODEGRAM_APPS || []).forEach(toEn);
+    document.getElementById("empty").textContent = "No results";
+  }
+</script>
 <script>
   const grid = document.getElementById("grid");
   const q = document.getElementById("q");
@@ -326,7 +339,7 @@
 
     list.sort((a, b) => {
       if (!!a.pin !== !!b.pin) return a.pin ? -1 : 1;
-      if (sortMode === "name") return a.name.localeCompare(b.name, "ja", { sensitivity: "base" });
+      if (sortMode === "name") return a.name.localeCompare(b.name, IS_JA ? "ja" : "en", { sensitivity: "base" });
       if (sortMode === "old") return a.date.localeCompare(b.date);
       return b.date.localeCompare(a.date);
     });

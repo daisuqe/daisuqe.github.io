@@ -8,26 +8,28 @@
 //   thumb : サムネイル画像のパス (任意。例 "thumbs/fude.png")
 //   pin   : true で並び順に関係なく先頭に表示 (任意)
 //   label : サムネイル左上のラベル (任意。例 "Special" "Topic")
+//   name_en / desc_en : 日本語以外の環境で表示する英語 (任意。無ければ name / desc)
 window.APPS = [
-  { slug: "GRAVITYFOUR",   name: "GRAVITY FOUR",  date: "2026-09-23", desc: "四目並べトーナメント", color: "#1f7a4d" },
-  { slug: "gyakuzan",      name: "gyakuzan",      date: "2026-07-10", desc: "逆算",       color: "#3b6fd8" },
-  { slug: "MKYBD",         name: "MKYBD",         date: "2026-06-13", desc: "スマホ用キーボード",           color: "#e0663a" },
-  { slug: "nodegram",      name: "nodegram",      date: "2026-08-02", desc: "node プログラミング",       color: "#8a4fd8", pin: true, label: "Special" },
-  { slug: "okudesu",       name: "okudesu",       date: "2026-05-31", desc: "3Dブロック並べ",                           color: "#d84f7a" },
-  { slug: "xwordx",        name: "xwordx",        date: "2026-09-29", desc: "対戦型クロスワード",                           color: "#222222" },
+  { slug: "GRAVITYFOUR",   name: "GRAVITY FOUR",  date: "2026-09-23", desc: "四目並べトーナメント", desc_en: "Connect Four tournament", color: "#1f7a4d" },
+  { slug: "gyakuzan",      name: "gyakuzan",      date: "2026-07-10", desc: "逆算", desc_en: "Reverse calculation",       color: "#3b6fd8" },
+  { slug: "MKYBD",         name: "MKYBD",         date: "2026-06-13", desc: "スマホ用キーボード", desc_en: "Keyboard for smartphones",           color: "#e0663a" },
+  { slug: "nodegram",      name: "nodegram",      date: "2026-08-02", desc: "node プログラミング", desc_en: "Node-based programming",       color: "#8a4fd8", pin: true, label: "Special" },
+  { slug: "okudesu",       name: "okudesu",       date: "2026-05-31", desc: "3Dブロック並べ", desc_en: "3D block stacking",                           color: "#d84f7a" },
+  { slug: "xwordx",        name: "xwordx",        date: "2026-09-29", desc: "対戦型クロスワード", desc_en: "Versus crossword",                           color: "#222222" },
 ];
 
 // nodegram で作ったサンプル
 //   name  : 表示名
 //   desc  : 説明 (任意)
+//   name_en / desc_en : 英語版 (任意)
 //   url   : 開くURL
 //   thumb : サムネイル画像のパス
 window.NODEGRAM_APPS = [
-  { name: "エイリアンシューティング",               thumb: "thumbs/nodegram/shooting.png",     url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/cikjbcn27ka3j8dig37r4/shoot_test1.json?rlkey=6xp5eq89wcaujtaqi3tgpe3k8&st=7wfnoxc4&dl=0" },
-  { name: "地球", desc: "3D ワイヤーフレーム",         thumb: "thumbs/nodegram/earth_wire.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/hjq7b2y24if7jiuidd95l/earth_line.ngz?rlkey=mqz5asvv11fov1p77ms8v1qis&st=upl7oum8&dl=0" },
-  { name: "地球", desc: "ポリゴン",                   thumb: "thumbs/nodegram/earth_poly.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/5fgg6piiy29ch2eq9yhmk/earth.ngz?rlkey=w4xbj54w7yfhjg49zux6ig33r&st=96swizxt&dl=0" },
-  { name: "月", desc: "3D ワイヤーフレーム、アート",   thumb: "thumbs/nodegram/moon_wire.png",    url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/h7g52fuylw7qnkabf2mzd/sphere_walk.ngz?rlkey=dat3rlg6enir65oh08qpmq3e0&st=96swizxt&dl=0" },
-  { name: "sin カーブ", desc: "3D ワイヤーフレーム、アート", thumb: "thumbs/nodegram/sin_wire.png", url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/yd5iechxlyeef4gh33e7e/sine03c.ngz?rlkey=f34nxktk97l8d1p8r3ley4kli&st=z70ut0x4&dl=0" },
-  { name: "花", desc: "合成音声",                     thumb: "thumbs/nodegram/hana_voice.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/nk0yse375meh8otvv2nc5/hana.ngz?rlkey=296vnzprt57l3dpdwuvlvn1as&st=5omuifnr&dl=0" },
-  { name: "ポリゴンサンプル", desc: "ポリゴン",                   thumb: "thumbs/nodegram/robo_polygon.png", url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/c7054kcosvl4rw2l6bkma/poly_shoot05.ngz?rlkey=8xwzgldc060s4x3tkngvwo1nv&st=q9gjvse2&dl=0" },
+  { name: "エイリアンシューティング", name_en: "Alien Shooting",               thumb: "thumbs/nodegram/shooting.png",     url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/cikjbcn27ka3j8dig37r4/shoot_test1.json?rlkey=6xp5eq89wcaujtaqi3tgpe3k8&st=7wfnoxc4&dl=0" },
+  { name: "地球", desc: "3D ワイヤーフレーム", name_en: "Earth", desc_en: "3D wireframe",         thumb: "thumbs/nodegram/earth_wire.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/hjq7b2y24if7jiuidd95l/earth_line.ngz?rlkey=mqz5asvv11fov1p77ms8v1qis&st=upl7oum8&dl=0" },
+  { name: "地球", desc: "ポリゴン", name_en: "Earth", desc_en: "Polygon",                   thumb: "thumbs/nodegram/earth_poly.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/5fgg6piiy29ch2eq9yhmk/earth.ngz?rlkey=w4xbj54w7yfhjg49zux6ig33r&st=96swizxt&dl=0" },
+  { name: "月", desc: "3D ワイヤーフレーム、アート", name_en: "Moon", desc_en: "3D wireframe, art",   thumb: "thumbs/nodegram/moon_wire.png",    url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/h7g52fuylw7qnkabf2mzd/sphere_walk.ngz?rlkey=dat3rlg6enir65oh08qpmq3e0&st=96swizxt&dl=0" },
+  { name: "sin カーブ", desc: "3D ワイヤーフレーム、アート", name_en: "Sine curve", desc_en: "3D wireframe, art", thumb: "thumbs/nodegram/sin_wire.png", url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/yd5iechxlyeef4gh33e7e/sine03c.ngz?rlkey=f34nxktk97l8d1p8r3ley4kli&st=z70ut0x4&dl=0" },
+  { name: "花", desc: "合成音声", name_en: "Flower", desc_en: "Speech synthesis",                     thumb: "thumbs/nodegram/hana_voice.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/nk0yse375meh8otvv2nc5/hana.ngz?rlkey=296vnzprt57l3dpdwuvlvn1as&st=5omuifnr&dl=0" },
+  { name: "ポリゴンサンプル", desc: "ポリゴン", name_en: "Polygon sample", desc_en: "Polygon",                   thumb: "thumbs/nodegram/robo_polygon.png", url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/c7054kcosvl4rw2l6bkma/poly_shoot05.ngz?rlkey=8xwzgldc060s4x3tkngvwo1nv&st=q9gjvse2&dl=0" },
 ];
