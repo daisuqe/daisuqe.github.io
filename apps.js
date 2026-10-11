@@ -25,6 +25,7 @@ window.APPS = [
 //   url   : 開くURL
 //   thumb : サムネイル画像のパス
 window.NODEGRAM_APPS = [
+  { name: "スライムダンジョン", name_en: "Slime Dungeon",                   thumb: "thumbs/slimedungeon.png",          url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/xruunjzq46c4o2olejmzi/SlimeDungeon.ngz?rlkey=tlsj2yglpsyy7jjvoqqjdzwjc&st=jkykr9z6&dl=0" },
   { name: "エイリアンシューティング", name_en: "Alien Shooting",               thumb: "thumbs/nodegram/shooting.png",     url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/cikjbcn27ka3j8dig37r4/shoot_test1.json?rlkey=6xp5eq89wcaujtaqi3tgpe3k8&st=7wfnoxc4&dl=0" },
   { name: "地球", desc: "3D ワイヤーフレーム", name_en: "Earth", desc_en: "3D wireframe",         thumb: "thumbs/nodegram/earth_wire.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/hjq7b2y24if7jiuidd95l/earth_line.ngz?rlkey=mqz5asvv11fov1p77ms8v1qis&st=upl7oum8&dl=0" },
   { name: "地球", desc: "ポリゴン", name_en: "Earth", desc_en: "Polygon",                   thumb: "thumbs/nodegram/earth_poly.png",   url: "https://daisuqe.github.io/nodegram/?url=https://www.dropbox.com/scl/fi/5fgg6piiy29ch2eq9yhmk/earth.ngz?rlkey=w4xbj54w7yfhjg49zux6ig33r&st=96swizxt&dl=0" },
