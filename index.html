@@ -1,4 +1,12 @@
 <!doctype html>
+<!--
+  daisuqe Apps
+  © 2026 daisuqe. All rights reserved.
+  本サイトおよび掲載アプリの無断での複製・改変・再配布・転載を禁じます。
+  Unauthorized copying, modification, redistribution, or republication
+  of this website or the apps listed on it is prohibited.
+  See LICENSE for details.
+-->
 <html lang="ja">
 <head>
 <meta charset="utf-8">
@@ -6,6 +14,16 @@
 <meta name="color-scheme" content="light">
 <title>daisuqe Apps</title>
 <meta name="description" content="daisuqe が作ったアプリの一覧">
+<meta name="author" content="daisuqe">
+<meta name="copyright" content="Copyright (c) 2026 daisuqe. All rights reserved.">
+<link rel="canonical" href="https://daisuqe.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="daisuqe Apps">
+<meta property="og:title" content="daisuqe Apps">
+<meta property="og:description" content="daisuqe が作ったアプリの一覧">
+<meta property="og:url" content="https://daisuqe.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@daiii">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -249,6 +267,46 @@
     font-size: 13px;
     border-top: 2px solid var(--chip);
   }
+  .copyright {
+    padding: 0; border: 0; background: none;
+    font: inherit; color: inherit;
+    cursor: pointer;
+  }
+  .copyright:hover { text-decoration: underline; }
+  .license {
+    width: min(640px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    padding: 20px;
+    border: 1px solid var(--edge);
+    border-radius: 14px;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .license::backdrop { background: rgba(0,0,0,.4); }
+  .license h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    margin: 0 0 12px;
+  }
+  .license pre {
+    white-space: pre-wrap;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--sub);
+    margin: 0 0 16px;
+  }
+  .license button {
+    height: 38px;
+    padding: 0 18px;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--bg);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -284,10 +342,34 @@
 </main>
 
 <footer>
-  © daisuqe · <a href="https://x.com/daiii">X</a> · <a href="https://d00harada.blogspot.com/">Blog</a> · <a href="https://www.youtube.com/@daisuqee">YouTube</a>
+  <button type="button" class="copyright" id="copyright">© 2026 daisuqe. All rights reserved.</button>
+  · <a href="https://x.com/daiii">X</a> · <a href="https://d00harada.blogspot.com/">Blog</a> · <a href="https://www.youtube.com/@daisuqee">YouTube</a>
 </footer>
 
-<script src="apps.js?v=20261012"></script>
+<dialog class="license" id="license" aria-labelledby="licenseTitle">
+  <h2 id="licenseTitle">License</h2>
+  <pre>Copyright (c) 2026 daisuqe. All rights reserved.
+
+This website (&quot;daisuqe Apps&quot;), including its source code, design, graphics,
+thumbnails, and text, and the apps listed on it, are the property of the
+copyright holder. No license is granted to copy, modify, distribute,
+sublicense, sell, or publish any part of it, in source or compiled form,
+without prior written permission from the copyright holder.
+
+You may browse this website and play the apps as published at their official
+pages. Each app may also include its own LICENSE.
+
+本サイト「daisuqe Apps」(ソースコード、デザイン、画像、サムネイル、文章を含む)
+および掲載しているアプリの著作権は、daisuqe が保有します。著作権者の事前の
+書面による許可なく、全部または一部を、複製、改変、再配布、転載、販売、公開する
+ことを禁じます。
+
+公式に公開されているページで、閲覧すること、アプリで遊ぶことは自由です。
+各アプリには、それぞれの LICENSE が含まれる場合があります。</pre>
+  <button type="button" id="licenseClose">Close</button>
+</dialog>
+
+<script src="apps.js?v=20261017"></script>
 <script>
   // ブラウザの言語が日本語以外なら英語表示に切り替える
   // ?lang=en / ?lang=ja で強制切り替えもできる
@@ -396,6 +478,16 @@
     lastHello = i;
     bubble.textContent = HELLOS[i][0];
     bubble.classList.add("show");
+  });
+
+  // © を押すと LICENSE を表示 (Close / 外側クリック / Esc で閉じる)
+  const license = document.getElementById("license");
+  document.getElementById("copyright").addEventListener("click", () => license.showModal());
+  document.getElementById("licenseClose").addEventListener("click", () => license.close());
+  license.addEventListener("click", e => {
+    const r = license.getBoundingClientRect();
+    const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+    if (!inside) license.close();
   });
 
   q.addEventListener("input", render);
