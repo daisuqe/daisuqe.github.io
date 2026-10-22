@@ -10,6 +10,7 @@
 //   label : サムネイル左上のラベル (任意。例 "Special" "Topic")
 //   name_en / desc_en : 日本語以外の環境で表示する英語 (任意。無ければ name / desc)
 window.APPS = [
+  { slug: "PartlyRainy",   name: "時々、雨", name_en: "Partly Rainy", date: "2026-10-20", desc: "落ちもの系ゲーム", desc_en: "Falling-block puzzle game", color: "#5a7fa8", thumb: "thumbs/partlyrainy.png" },
   { slug: "Yokohama",      name: "Yokohama",      date: "2026-10-12", desc: "1024街作りゲーム", desc_en: "1024 city-building game", color: "#2a9fb0", thumb: "thumbs/nodegram/yokohama.png" },
   { slug: "GRAVITYFOUR",   name: "GRAVITY FOUR",  date: "2026-09-23", desc: "四目並べトーナメント", desc_en: "Connect Four tournament", color: "#1f7a4d" },
   { slug: "gyakuzan",      name: "gyakuzan",      date: "2026-07-10", desc: "逆算", desc_en: "Reverse calculation",       color: "#3b6fd8" },
